@@ -1,11 +1,3 @@
-# Plotting Assignment 1 for Exploratory Data Analysis
-
-Please see verbatim instructions below for full background information on this assignment.
-
-Repository contains four R scripts, each of which utilises the same dataset. However, assignment instructions specify that each "code file should include code for reading the data so that the plot can be fully reproduced". 
-
-As such, each script downloads and reads the same dataset independently, which you might not want to do. If executing these scripts together, you should extract the identical code from the scripts above the note "`## Output graph to PNG`" and run that in a separate script, once.
-
 ## Introduction
 
 This assignment uses data from

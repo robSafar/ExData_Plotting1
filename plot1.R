@@ -7,16 +7,20 @@ if(!file.exists("household_power_consumption.txt")){
 
 ## Load and clean the data
 
-workingData <- read.table("household_power_consumption.txt", header=TRUE, sep=";", stringsAsFactors=FALSE)
+if (!exists("workingData")){
 
-## Establish Date column as date format and subset
+        workingData <- read.table("household_power_consumption.txt", header=TRUE, sep=";", stringsAsFactors=FALSE)
+        
+        ## Establish Date column as date format and subset
+        
+        workingData$Date <- as.Date(workingData$Date, format="%d/%m/%Y")
+        workingData <- subset(workingData, Date >= "2007-02-01" & Date <= "2007-02-02")
+        
+        ## Establish Time column as date/time format
+        
+        workingData$Time <- strptime(paste(workingData$Date, as.character(workingData$Time), sep=" "), format="%Y-%m-%d %H:%M:%S")
 
-workingData$Date <- as.Date(workingData$Date, format="%d/%m/%Y")
-workingData <- subset(workingData, Date >= "2007-02-01" & Date <= "2007-02-02")
-
-## Establish Time column as date/time format
-
-workingData$Time <- strptime(paste(workingData$Date, as.character(workingData$Time), sep=" "), format="%Y-%m-%d %H:%M:%S")
+}
 
 ## Output graph to PNG
 
